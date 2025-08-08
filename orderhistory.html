@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History - Plant Care</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>ORDER HISTORY</h1>
+        <nav>
+            <a href="index.html">HOME</a> |
+            <a href="services.html">SERVICES</a> |
+            <a href="orderhistory.html">ORDER HISTORY</a> |
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </div>
+
+    <div class="order-history-container">
+        <h3>Your Orders</h3>
+        <table id="orderTable">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Service Name</th>
+                    <th>Price</th>
+                    <th>Order Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="orderTableBody"></tbody>
+        </table>
+    </div>
+
+    <script>
+        window.onload = function() {
+            fetch('get_orders.php', {
+                method: 'GET',
+                credentials: 'same-origin'
+            })
+            .then(response => response.json())
+            .then(orders => {
+                const tbody = document.getElementById('orderTableBody');
+                if (orders.error) {
+                    tbody.innerHTML = `<tr><td colspan="5">${orders.error}</td></tr>`;
+                    return;
+                }
+                if (orders.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5">No orders found.</td></tr>';
+                    return;
+                }
+                orders.forEach(order => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${order.order_id}</td>
+                        <td>${order.service_name}</td>
+                        <td>$${order.price}</td>
+                        <td>${order.order_date}</td>
+                        <td>${order.status}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching orders:', error));
+        };
+    </script>
+</body>
+</html>

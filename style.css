@@ -1,4 +1,5 @@
 body {
+<<<<<<< HEAD
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
@@ -238,4 +239,82 @@ input[type="date"] {
     #signupForm {
         padding: 20px;
     }
+=======
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.header nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.service-container, .profile-container, .order-history-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.service-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px;
+    display: inline-block;
+    width: 22%;
+    text-align: center;
+}
+
+.service-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.order-btn, .update-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.order-btn:hover, .update-btn:hover {
+    background-color: #45a049;
+}
+
+#orderModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+>>>>>>> c09131519477810416ca64832047929d4096597c
 }
