@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Plant Care</title>
+    <link rel="stylesheet" href="service.css">
+</head>
+<body>
+    <div class="header">
+        <h1>PLANT CARE SERVICES</h1>
+        <nav>
+            <a href="index.html">HOME</a> |
+            <a href="services.html">SERVICES</a> |
+            <a href="orderhistory.html">ORDER HISTORY</a> |
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </div>
+
+    <div class="service-container">
+        <div class="service-card">
+            <img class="service-img" src="plantfood.jpg" alt="Quality Plant Nutrition">
+            <h3>Quality Plant Nutrition</h3>
+            <p>Organic and synthetic fertilizers for all plant types</p>
+            <p>Price: $25.99</p>
+            <button class="order-btn" onclick="showOrderForm(1)">ORDER NOW</button>
+        </div>
+
+        <div class="service-card">
+            <img class="service-img" src="waterplants.jpg" alt="Watering Solutions">
+            <h3>Watering Solutions</h3>
+            <p>Complete watering systems including drip irrigation</p>
+            <p>Price: $45.50</p>
+            <button class="order-btn" onclick="showOrderForm(2)">ORDER NOW</button>
+        </div>
+
+        <div class="service-card">
+            <img class="service-img" src="pest.jpg" alt="Pest Control">
+            <h3>Pest Control</h3>
+            <p>Eco-friendly pest control solutions</p>
+            <p>Price: $35.75</p>
+            <button class="order-btn" onclick="showOrderForm(3)">ORDER NOW</button>
+        </div>
+
+        <div class="service-card">
+            <img class="service-img" src="tools.jpg" alt="Gardening Tools">
+            <h3>Gardening Tools</h3>
+            <p>Premium gardening tool sets</p>
+            <p>Price: $55.00</p>
+            <button class="order-btn" onclick="showOrderForm(4)">ORDER NOW</button>
+        </div>
+    </div>
+
+    <!-- Order Form Modal -->
+    <div id="orderModal" style="display:none;">
+        <form action="process_order.php" method="POST">
+            <h3>Confirm Your Order</h3>
+            <input type="hidden" id="service_id" name="service_id">
+            <p>Click submit to place your order.</p>
+            <input type="submit" value="Submit Order" class="order-btn">
+            <button type="button" onclick="hideOrderForm()" style="padding: 10px 20px; margin-left: 10px;">Cancel</button>
+        </form>
+    </div>
+
+    <script>
+        function showOrderForm(serviceId) {
+            document.getElementById('service_id').value = serviceId;
+            document.getElementById('orderModal').style.display = 'block';
+        }
+
+        function hideOrderForm() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success')) {
+                alert(urlParams.get('success'));
+                window.history.replaceState({}, document.title, "services.html");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlantCare - Register</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <form id="signupForm" action="signup.php" method="POST" onsubmit="return validateForm()">
+    <div class="register-container">
+      <h2>PlantCare - Register</h2>
+      
+      <div class="input-group">
+        <label for="fullName">Name</label>
+        <input type="text" id="fullName" name="name" placeholder="Enter your name" required>
+        <span class="error-message" id="fullName-error"></span>
+      </div>
+      
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <span class="error-message" id="email-error"></span>
+      </div>
+      
+      <div class="input-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="+254XXXXXXXXX" required>
+        <span class="error-message" id="phone-error"></span>
+      </div>
+      
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        <span class="error-message" id="password-error"></span>
+      </div>
+      
+      <div class="input-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+        <span class="error-message" id="confirmPassword-error"></span>
+      </div>
+      
+      <div class="checkbox-group">
+        <label>
+          <input type="checkbox" id="remember" name="remember"> Remember me
+        </label>
+      </div>
+      
+      <button type="submit" class="signup">Sign Up</button>
+      
+      <div class="login-link">
+        <p>Already have an account? <a href="login.html">Login</a></p>
+      </div>
+    </div>
+  </form>
+
+  <script src="signup.js"></script>
+</body>
+</html>
